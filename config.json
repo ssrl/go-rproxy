@@ -1,0 +1,8 @@
+{
+	"Host": ":80",
+	"Services": {
+		"fakesite.com": "127.0.0.1:8080",
+		"model.site.com": "10.24.0.1:80",
+		"www.forwardto.com": "www.elsewhere.com:80"
+	}
+}

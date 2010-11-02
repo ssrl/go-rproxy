@@ -1,0 +1,9 @@
+A very basic http proxy in ~50 lines of Go
+
+You'll need the Go toolchain installed to compile
+
+There's no makefile provided because compilation is just
+
+$ 6g proxy.go && 6l proxy.6 # or 8g, or 5g
+
+To use it, just edit config.json (config.json must be in the same directory as the executable when run). The config file is pretty self explanatory.
