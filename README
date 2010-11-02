@@ -1,4 +1,4 @@
-A very basic http proxy in ~50 lines of Go
+A very basic http reverse proxy in ~50 lines of Go
 
 You'll need the Go toolchain installed to compile
 
