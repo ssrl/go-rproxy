@@ -1,9 +1,15 @@
 A very basic http reverse proxy in ~50 lines of Go
 
-You'll need the Go toolchain installed to compile
+PURPOSE:
 
+Provides a very simple http reverse proxy based on HTTP/1.1 Host headers (should also work for HTTP/1.0 if the request conatins the full url). Does not provide load balancing, cacheing, or any other feature really. I use it along with web.go ( http://github.com/hoisie/web.go ) or go's http server to serve multiple domains on one server, and that's about all it's good for.
+
+INSTALL:
+
+You'll need the Go ( http://golang.org ) toolchain installed to compile
 There's no makefile provided because compilation is just
-
 $ 6g proxy.go && 6l proxy.6 # or 8g, or 5g
 
-To use it, just edit config.json (config.json must be in the same directory as the executable when run). The config file is pretty self explanatory.
+USE:
+
+To use it, just edit config.json (config.json must be in the same directory as the executable when run). The config file is pretty self explanatory. Note: it does not match wildcard domains (yet, might be added).
