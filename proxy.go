@@ -19,13 +19,14 @@ func (s Server) ServeHTTP(out http.ResponseWriter, r *http.Request) {
 					oc.Close()
 				}()
 				go func() {
+					r.Header["X-Forwarded-For"] = out.RemoteAddr()
 					r.Write(c)
 					io.Copy(c, oc)
 					c.Close()
 				}()
 				return
 			} else c.Close()
-		}
+		} else os.Stderr.WriteString(os.Args[0] + ": " + e.String() + "\n")
 	}
 	out.WriteHeader(503)
 	out.Write([]byte("Service Unavailable"))
@@ -50,6 +51,6 @@ func main() {
 			}
 		}
 	}
-	os.Stderr.WriteString(e.String() + "\n")
+	os.Stderr.WriteString(os.Args[0] + ": " + e.String() + "\n")
 	os.Exit(1)
 }
